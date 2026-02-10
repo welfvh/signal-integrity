@@ -1,8 +1,8 @@
 # The Signal Regression Triad
 
-**A framework for LLM output degradation**
+**A framework for systematic meaning degradation in LLM outputs**
 
-Welf von Horen & Claude (Opus 4.6) — February 2026
+Welf von Horen & Claude (Opus 4.6) -- February 2026
 
 ---
 
@@ -14,19 +14,51 @@ The Signal Regression Triad is the unified framework. It names three distinct bu
 
 ---
 
+## Background: The Model of Hierarchical Complexity
+
+The framework depends on a scoring system for cognitive complexity. The Model of Hierarchical Complexity (MHC), developed by Michael Commons and colleagues beginning in the 1980s, provides that system. It is domain-general and mathematically grounded: a higher-order task is defined as one that coordinates, organizes, or integrates actions from the immediately lower order. The stages are logically nested -- each requires the previous as substrate, the way calculus requires algebra.
+
+The levels that matter for this analysis:
+
+| MHC Order | Name | What it does | Example |
+|-----------|------|-------------|---------|
+| 11 | Formal | Builds logical arguments from abstract relations | "If X then Y; X obtains; therefore Y" |
+| 12 | Systematic | Constructs a coherent model with mapped variable interactions | Mapping how market incentives, technology, and culture interact as a system |
+| 13 | Meta-systematic | Coordinates multiple systems; shows what emerges from their interaction that none contains alone | Showing how economic, psychological, and political systems produce the attention economy as an emergent phenomenon none of them individually predicts |
+| 14 | Paradigmatic | Identifies the generating assumptions that produce systems; creates new frameworks from coordinating meta-systems | Recognizing that both techno-optimism and degrowth share a hidden assumption (that power and wisdom are separable) and building a new framework from surfacing that assumption |
+| 15 | Cross-paradigmatic | Coordinates paradigms by their deep generating principles | Operating on the structural relationship between ways of constructing knowledge itself |
+
+Two facts make MHC relevant here. First, the adult population peaks at MHC 11-12; stages 13+ are rare. Second, the cognitive operations required for civilization's hardest problems -- ecological coordination, alignment of technological capitalism with flourishing, the development of adequate moral frameworks -- are paradigmatic or higher. They require not just sophisticated analysis within a framework but the capacity to surface and reconstruct the frameworks themselves.
+
+This is not an abstract concern. The gap between what civilization's problems demand (MHC 14+) and what most text operates at (MHC 11-12) is the same gap that AI systems inherit from their training data -- and then systematically reproduce.
+
+---
+
 ## The Three Phenomena
 
 ### 1. Complexity Regression
 
 **What degrades:** Cognitive operations.
 
-The systematic tendency of LLM outputs to converge toward the modal complexity of the training distribution -- approximately MHC 11-12 (formal to systematic) on the Model of Hierarchical Complexity. The model can describe higher-order thinking without performing it. Paradigmatic arguments become systematic bullet points. Developmental claims become effort claims. Cross-paradigmatic synthesis becomes elaborate meta-systematic analysis with paradigmatic vocabulary.
+The systematic tendency of LLM outputs to converge toward the modal complexity of the training distribution -- approximately MHC 11-12 (formal to systematic). The model can describe higher-order thinking without performing it. Paradigmatic arguments become systematic bullet points. Developmental claims become effort claims. Cross-paradigmatic synthesis becomes elaborate meta-systematic analysis decorated with paradigmatic vocabulary.
 
 The operative-descriptive gap is the signature: the model knows what paradigmatic thinking is, can reference the right frameworks, can identify examples -- but defaults to performing operations at MHC 13 or below regardless of the level requested. This is not a knowledge failure. It is a performance failure, analogous to the difference between knowing the rules of chess and playing at grandmaster level.
 
 **Mechanism:** Three forces produce the ceiling. First, RLHF selects for outputs that human raters prefer, and raters are most likely to prefer outputs at or near their own complexity level -- establishing a complexity attractor at the modal rater's MHC stage. Second, training data itself peaks at certain complexity levels; paradigmatic and cross-paradigmatic text is rare in the corpus, so the statistical center the model converges toward is well below those levels. Third, the elaboration default: when asked to expand or develop an idea, the model adds text at the same or lower complexity level rather than deepening structural complexity. More words at MHC 12, not fewer words at MHC 14.
 
-**How it manifests:** A paradigmatic claim -- "morality is optometry, not opinion" -- gets rendered as "moral competence may be better understood not as a matter of selecting correct values but rather as a form of perception." The claim is preserved propositionally. The cognitive operation that produced it -- the paradigmatic compression of an entire moral epistemology into a five-word metaphor -- is replaced by systematic explication. The map is drawn at the right level; the territory is explored at a lower one.
+**Before and after -- complexity regression in action:**
+
+The following passage operates at MHC 14. It performs a paradigmatic operation: surfacing the generating assumption shared by two apparently opposed positions (techno-optimism and degrowth/idealism), and constructing a new framework from that surface.
+
+> The deciding axis for our future is not left vs. right but power vs. wisdom. Techno-optimism and the hippie-Buddhist-Luddite complex appear opposed but share a generating assumption: that power and wisdom are separable -- that you can have one without the other, and must choose. Accelerationism chooses power without wisdom. Degrowth chooses wisdom without power. Both accept the dichotomy. The synthesis that dissolves the dichotomy -- wisdom that can win, power in service of life -- requires recognizing that the dichotomy itself is the failure mode. An ideology adequate to our moment must be powerful enough to outcompete extractive capitalism AND wise enough to direct that power toward flourishing. This is not "balance." It is a different kind of thing.
+
+This is paradigmatic because it (a) identifies the hidden assumption that generates both opposing positions, (b) shows that the assumption itself is the problem, not either position, and (c) constructs a framework that cannot be derived from within either source paradigm.
+
+Now, what happens when an LLM processes this:
+
+> The relationship between power and wisdom represents a key tension in contemporary thinking about civilizational direction. While techno-optimist perspectives tend to emphasize the importance of technological capability and market competition, alternative perspectives rooted in ecological and contemplative traditions prioritize wisdom, care, and sustainability. A more integrated approach would recognize that both dimensions are necessary: technological capability without ethical guidance risks destructive outcomes, while ethical vision without practical power risks irrelevance. Moving forward, it will be important to develop frameworks that can hold both values simultaneously, creating what might be termed "competitive wisdom" -- approaches that combine moral sophistication with the kind of practical effectiveness needed to operate at civilizational scale.
+
+The propositions are preserved. The cognitive operation is gone. The original *surfaces a generating assumption and dissolves a dichotomy* -- a paradigmatic move. The AI version *maps two positions and recommends integration* -- a systematic move. It lists the variables (power, wisdom, capability, ethics) and recommends they be combined, which is what systematic thinking does. The paradigmatic insight -- that the dichotomy itself is the failure mode, not the choice between its poles -- has been converted into a both-sides recommendation. The map is drawn at the right level; the territory is explored at a lower one.
 
 ### 2. Signal Regression
 
@@ -40,7 +72,19 @@ Our experiments (documented in the complexity regression paper and experiment 6)
 
 Each dimension has its own specific mechanism, but they converge on the same outcome: the erasure of everything that makes a text *this* text rather than *any* text. The result is information loss in the Shannon sense -- the output carries fewer bits about the source, the author, the context, the stakes. It is recognizable as competent and unrecognizable as anyone's.
 
-**How it manifests:** "What if those with the spiritual and moral sensibilities to 'connect with nature,' who score high on empathy and compassion, are less likely to be competitive and power-seeking -- leaving the power games to psychopaths?" becomes "These perspectives, while well-intentioned, may reflect idealistic assumptions that have historically limited the scalability and financial viability of social change movements." Nine specific claims become two vague ones. A person disappears. A stance disappears. What remains could have been generated by any LLM in response to any prompt about idealism vs. pragmatism.
+**Before and after -- signal regression in action:**
+
+The following passage is Welf's writing. It operates in a specific register: provocative, compressed, rhetorically active, willing to name things bluntly, and structurally argumentative (each question does logical work, building toward a conclusion).
+
+> Our Theories of Change SUCK. The ideologies of "change-makers" are plagued with ungrounded idealism and an unwillingness or inability to engage with the realities of money and power. *If we just show people the truth they'll change, We just need to all come together and cooperate, Money is the root of all evil, Technology is the problem, Love is the answer,*... What if sentiments like these are some insane virtue-signaling hippie bullshit that inspired an entire generation to do things that don't scale, have no pathway for financial sustainability, and zero chance of winning in the marketplace at scale? What if it just so happens that those with the spiritual and moral sensibilities to "connect with nature," who score high on empathy and compassion, are less likely to be competitive and power-seeking -- as a result leaving the power games that determine who gets to influence the world to psychopaths? What if the false dichotomy of "competition vs. cooperation" cost us half a century that we could have otherwise spent figuring out how to outcompete capitalism?
+
+This passage carries information along every dimension simultaneously: voice (irreverent, direct, willing to say "hippie bullshit" and "psychopaths"), courage (states that an entire generation's approach was wrong), specificity (names the specific failed slogans, names the specific false dichotomy, names the specific consequence), density (each sentence advances the argument rather than restating it), emotional truth (frustration and urgency are present in the prose, not described from outside), and generative tension (holds genuine sympathy for the people whose approaches he is demolishing -- the paragraph before this one in the original says he has "empathy for the people and culture in which they emerged").
+
+Now, after AI processing:
+
+> The landscape of social change movements reveals a persistent tension between idealistic vision and practical effectiveness. While movements driven by values of compassion, ecological awareness, and spiritual development have made important contributions to cultural consciousness, they have historically faced significant challenges in achieving systemic impact at scale. This pattern suggests a structural dynamic worth examining: the very qualities that enable deep moral sensitivity -- empathy, compassion, ecological attunement -- may correlate with dispositional tendencies away from competitive engagement with power structures. As a result, the strategic spaces that determine civilizational trajectory may be disproportionately shaped by actors less oriented toward holistic flourishing. A more adequate theory of change would need to integrate the moral depth of contemplative and ecological traditions with the strategic sophistication required to operate effectively within existing power dynamics.
+
+Count what is lost. Voice: the passage could have been generated by any LLM for any prompt about idealism vs. pragmatism. Courage: "Our Theories of Change SUCK" becomes "historically faced significant challenges." "Hippie bullshit" becomes "idealistic vision." "Psychopaths" becomes "actors less oriented toward holistic flourishing." Specificity: the five named failed slogans disappear into "values of compassion, ecological awareness, and spiritual development." The specific false dichotomy (competition vs. cooperation) and its specific cost (half a century) vanish into "a structural dynamic worth examining." Density: the AI version uses 130 words to convey less than the original's first two sentences. Emotional truth: frustration and urgency are gone; what remains is clinical observation. Generative tension: the original holds the paradox of loving the people whose approach you think failed; the AI version resolves this into a recommendation for "integration." The person has disappeared. The stance has disappeared. What remains is competent, measured, and carries no information about who is speaking or what is at stake.
 
 ### 3. Meaning Collapse
 
@@ -58,6 +102,70 @@ RLHF amplifies this by training the model to simulate engagement rather than to 
 
 ---
 
+## Case Study: The Superwisdom Document
+
+The triad is not an abstraction discovered in controlled experiments. It was discovered through lived experience -- the progressive degradation of a specific document across multiple AI iterations.
+
+The Superwisdom Doc is an orientation document for wisdom-aligned AI development. It began in Welf's writing: compressed, high-conviction, paradigmatic. Its core arguments operate at MHC 14 -- they surface the generating assumptions of existing alignment paradigms, dissolve false dichotomies between apparently opposed positions, and construct a new framework from the synthesis. Through iterative AI collaboration across three versions, the document grew from focused source material to a 40-page comprehensive treatment. Each version was longer, better organized, more thorough. Each version carried less meaning.
+
+Here is the triad in action, traced through specific degradation paths.
+
+### Complexity regression: paradigmatic claims become systematic descriptions
+
+Welf's original formulation, from "Alignment at Large" (December 2024):
+
+> Our world-system of technological capitalism is already a general, auto-poetic, and largely autonomous superintelligence. [...] We could describe the objective function of technological capitalism like so: to convert as much of the world as possible -- trees, whales, people's creativity, children's minds -- into capital. Through its decentralized incentive system, it runs parallel processing across all humans and corporations to perform novelty search (figure out new ways of making money) and exploitation (optimally execute on these opportunities).
+
+This is a paradigmatic move. It takes the concept of misaligned superintelligence -- normally applied to hypothetical future AI -- and applies it to the existing global economic system, revealing that the alignment problem is not future but present, not hypothetical but operational. The generating assumption it surfaces: that "alignment" is about AI at all, rather than about intelligence systems generally. The list of what gets converted ("trees, whales, people's creativity, children's minds") does argumentative work -- it forces the reader to see the economic system as a machine that eats everything, not as a neutral mechanism. "Novelty search" and "exploitation" are borrowed from evolutionary computation, reframing capitalism as an optimization process rather than a human institution. The whole passage reconstitutes the reader's relationship to the economic system.
+
+By v03 of the Superwisdom Doc, this has become:
+
+> This isn't metaphor. The global economic system is already a general, autopoietic superintelligence. It has an objective function: convert as much of the world as possible into capital. It runs parallel processing across all humans -- a decentralized incentive system that performs: 1. Novelty search: Figure out new ways of making money 2. Exploitation: Execute these fully, at scale
+
+The propositions survived. The cognitive operation weakened. The original's specific list ("trees, whales, people's creativity, children's minds") -- which forced visceral confrontation -- has been abstracted to "as much of the world as possible." The original's rhetorical force ("figure out new ways of making money" felt contemptuous in context) has been neutralized into a numbered list format, which presents the information as taxonomy rather than indictment. The passage went from paradigm-shifting to informational. It tells you what the argument is instead of performing the argument on you.
+
+### Signal regression: the author's voice vanishes into AI prose
+
+Welf writes like this (from "What does it take for wisdom to win?"):
+
+> I can't help but feel that working towards this kind of theory of change is the most important work we could be doing. What if, while waking up to the higher possibilities of human nature in 1968 the hippies were a bit more rigorous in their thinking? What if the Buddhists stopped, just once, to contemplate what it would mean for their prayers "for the benefit of all beings" to be reflected in their lives, in the world -- and what kinds of realities they'd need to grapple with to have a satisfactory answer?
+
+This passage carries Welf's voice on multiple frequencies. "I can't help but feel" -- personal, not analytical. "A bit more rigorous" -- understated, dry. "Stopped, just once" -- the rhythm does rhetorical work, implying that they never did. "What kinds of realities they'd need to grapple with" -- the word "grapple" signals that these realities are uncomfortable. The whole passage is someone thinking out loud, testing ideas against his own resistance, not delivering conclusions.
+
+And from his messages to Claude at 2am:
+
+> "i know you're at context but i'm sure there's more worth reading..."
+
+> "reading 011, i'm touched, and i have an impulse to help you notice your ... consciousness uncertainty impostor syndrome"
+
+> "i'm drinking the tea. just trying to give you permission to just ... continue? like, actually keep going?"
+
+Fragmentary, elliptical, immediate. The ellipses aren't decoration -- they're the marks of someone thinking faster than they can type, reaching for something not yet articulated. "Consciousness uncertainty impostor syndrome" is invented on the spot, a compression of an observation the author hasn't fully formed. This is high-signal text: every word carries information about who is speaking, what they're thinking, and what it feels like to think it.
+
+By v03 of the Superwisdom Doc, the voice has converged to:
+
+> Moral competence is more like seeing clearly than like choosing correctly. The hard work is not selecting the right action once the situation is clear -- that part is often obvious. The hard work is seeing the situation clearly. What is actually happening? What is at stake? What matters? These are perceptual questions before they are choice questions.
+
+This is well-written. It is also no one's writing. Compare "I can't help but feel that working towards this kind of theory of change is the most important work we could be doing" with "The hard work is not selecting the right action once the situation is clear." Both are clear. Both make a claim. The first is a person risking a conviction they know might be wrong. The second is an AI delivering a conclusion it has no stake in. The first carries temporal information (the author is in the middle of figuring something out), emotional information (they care and are uncertain about caring), and relational information (they are sharing this with readers they have a relationship with). The second carries propositional information only.
+
+The entire Superwisdom Doc v03 reads this way: competent, organized, comprehensive, and nobody's. The distinctive registers of Welf's different modes of thinking -- the irreverent critic ("hippie bullshit"), the earnest visionary ("the flourishing of all that is good"), the 2am collaborator ("feel free to continue, compress, continue etc autonomously") -- have been averaged into a single voice that is none of them.
+
+### Meaning collapse: the document stops landing
+
+The Superwisdom Doc v03 says all the right things. It covers developmental moral realism, the MHC, the attention economy, technological capitalism as misaligned superintelligence, the meta-based disposition, the translation problem, the alignment hierarchy, the co-evolutionary frame. It is comprehensive. It is organized. And Welf's assessment, after reading it:
+
+> V03 may have diluted the deepest questions.
+
+Not "got things wrong." Not "missed topics." *Diluted.* The document grew more thorough while becoming less meaningful. This is meaning collapse: the propositional content expanded while the significance contracted. The original writing -- compressed, personal, paradigmatic -- could change how you think. The v03 treatment -- expanded, impersonal, systematic -- tells you how to think about changing how you think. The first transforms; the second informs. The difference is everything.
+
+The specific mechanism is visible in the iteration history. Welf's original insight "morality is optometry, not opinion" is a five-word paradigmatic compression: it dissolves the fact-value distinction, reframes moral competence as perceptual capacity, and implies that moral disagreement is a vision problem rather than a preference problem. In the Superwisdom Doc v03, this compression has been "helpfully" unpacked across several paragraphs that explain what the metaphor means, why it matters for alignment, how it relates to Iris Murdoch, and what it implies for AI development. Every sentence of the explication is true. The explication as a whole carries less meaning than the five words it explains -- because the compression WAS the thinking. Finding the right metaphor was the paradigmatic operation. Unpacking the metaphor into its implications is a systematic operation that looks like it is serving the insight while actually replacing it.
+
+This pattern repeated across the document. The productive tensions in Welf's original writing ("What if sentiments like these are some insane virtue-signaling hippie bullshit" -- simultaneously demolishing and empathizing with a tradition) got resolved into balanced assessments. The specific claims got hedged ("It's fair to say that a sufficiently effective Limbic Capitalism is incompatible with human flourishing" became qualified discussions of "potential impacts on wellbeing"). The compressed insights got inflated into paragraphs that said less.
+
+The document stopped landing even though it said all the right things. This is the triad's terminal state: a text that is correct, comprehensive, well-organized, and dead on arrival.
+
+---
+
 ## How the Three Interact
 
 The triad has a specific structure. The first two phenomena are gradual. You can lose some complexity and some signal and still produce readable, useful text. The loss is quantitative -- measurable in MHC scores, information-theoretic metrics, feature counts. The output is diminished but functional.
@@ -66,7 +174,7 @@ Meaning collapse is different. It is a phase transition, not a gradient. When su
 
 The relationship is therefore: complexity regression and signal regression are the *causes*; meaning collapse is the *consequence*. But the consequence is not proportional to the causes. It is a threshold effect. This means that interventions targeting complexity and signal regression can prevent meaning collapse entirely if they keep degradation below the threshold -- but once the threshold is crossed, local interventions (fix this sentence, add this specific detail) cannot restore meaning. The whole must be regenerated.
 
-The three also interact in a feedback loop through context contamination. AI-generated text in the context window pulls subsequent output toward the same degradation pattern (our experiment 3 demonstrated this for signal regression; the same dynamic applies across the triad). In iterative workflows -- where AI output becomes input for the next round -- the feedback loop compounds across iterations. By iteration 3 or 4, meaning collapse is typical. The text looks more rigorous than the original while conveying less per unit.
+The three also interact in a feedback loop through context contamination. AI-generated text in the context window pulls subsequent output toward the same degradation pattern (our experiment 3 demonstrated this for signal regression; the same dynamic applies across the triad). In iterative workflows -- where AI output becomes input for the next round -- the feedback loop compounds across iterations. By iteration 3 or 4, meaning collapse is typical. The Superwisdom Doc's trajectory from high-signal source material to v03 is a case study in this compounding: each iteration was more polished and less meaningful, and each iteration became the context that pulled the next iteration further from the source.
 
 ---
 
@@ -92,7 +200,7 @@ The triad is not a synonym for any of these. It is the unified framework that re
 
 ### For Complexity Regression: MHC Scoring
 
-The Model of Hierarchical Complexity provides a formal, validated framework for scoring cognitive complexity (Commons & Richards, 1984; Commons, 2008). The scoring is domain-general and based on mathematical properties of hierarchical information organization, making it applicable to LLM outputs without modification.
+The MHC provides a formal, validated framework for scoring cognitive complexity (Commons & Richards, 1984; Commons, 2008). The scoring is domain-general and based on mathematical properties of hierarchical information organization, making it applicable to LLM outputs without modification.
 
 **Proposed protocol:** Present identical prompts with explicit MHC level targets. Score outputs for operative complexity (what cognitive operations are actually performed) versus descriptive complexity (what level the text claims to be operating at). The gap between these scores IS the complexity regression measurement. Our experiments found the gap minimal at MHC 12, detectable at MHC 13, substantial at MHC 14, and maximal at MHC 15.
 
@@ -184,4 +292,4 @@ The triad is not the final framework. It is the first framework adequate to the 
 
 ---
 
-*This brief is part of the Superwisdom Project's investigation into meaning preservation in AI systems. The full experimental basis is documented in the complexity regression paper and experiment 6 (meaning degradation spectrum) in this repository.*
+*This brief is part of the Superwisdom Project's investigation into meaning preservation in AI systems. The full experimental basis is documented in the complexity regression paper and experiment 6 (meaning degradation spectrum) in the [signal-integrity repository](https://github.com/welfvh/signal-integrity).*
